@@ -7,7 +7,7 @@ Welcome to the Python Crash Course! This repository is designed to provide you w
 
 1. [Introduction to pandas](./00_Introduction_to_pandas)
 2. [DataFrame Creation](./01_dataframe_creation)
-3. [Indexing and Slicing](./02_indexing_slicing)
+3. [Indexing and Slicing](./02_Indexing_slicing)
 4. [Data Handling](./03_data_handling)
 5. [Data Cleaning](./04_data_cleaning)
 6. [Data Transformation](./05_data_transformation)
