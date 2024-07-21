@@ -135,7 +135,8 @@ print(df_dropped_columns)
 - `df.dropna(axis=0, how='any')` removes rows with any missing values.
 - `df.dropna(axis=1, how='any')` removes columns with any missing values.
 
-#### `DataFrame.fillna()`
+
+### `DataFrame.fillna()`
 
 **Explanation:**
 The `DataFrame.fillna()` function is used to fill missing values in a DataFrame with specified values. It can be used to replace missing values with a scalar value, forward fill, backward fill, or other methods.
@@ -172,13 +173,32 @@ df_filled_value = df.fillna(value={'Name': 'Unknown', 'Age': df['Age'].mean(), '
 # Forward filling missing values
 df_filled_ffill = df.fillna(method='ffill')
 
+# Backward filling missing values
+df_filled_bfill = df.fillna(method='bfill')
+
 # Displaying the results
-print("DataFrame with Missing Values Filled:")
+print("DataFrame with Missing Values Filled with Specific Values:")
 print(df_filled_value)
 print("\nDataFrame with Forward Fill:")
 print(df_filled_ffill)
+print("\nDataFrame with Backward Fill:")
+print(df_filled_bfill)
 ```
-*Explanation:*
+
+**Explanation:**
 - `df.fillna(value={'Name': 'Unknown', 'Age': df['Age'].mean(), 'City': 'Unknown'})` fills missing values with specified values.
 - `df.fillna(method='ffill')` performs forward filling to replace missing values with the previous non-missing value.
+- `df.fillna(method='bfill')` performs backward filling to replace missing values with the next non-missing value.
 
+**Note:** 
+In future versions of pandas, using `fillna` with the `method` parameter might raise an error. To avoid this, use `ffill()` or `bfill()` methods directly as shown below:
+
+```python
+# Forward fill using ffill() method
+df_filled_ffill = df.ffill()
+
+# Backward fill using bfill() method
+df_filled_bfill = df.bfill()
+```
+
+By following these updated practices, you can ensure that your code remains compatible with future versions of pandas.
