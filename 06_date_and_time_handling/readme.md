@@ -47,6 +47,30 @@ print(dates)
 *Explanation:*
 - `pd.to_datetime(date_strings)` converts the list of date strings into `datetime64` objects.
 
+---
+
+### Common `Datetime` Formats in `Pandas`:
+
+**Description:**
+Short descriptions of various string formats used to handle datetime data in pandas.
+
+- **`%Y-%m-%d`**: Converts strings in the format `2023-07-23` to datetime. This is the ISO format for dates, commonly used for sorting and system compatibility.
+- **`%d-%m-%Y`**: Converts strings in the format `23-07-2023` to datetime. This day-first format is widely used outside the United States.
+- **`%m/%d/%Y`**: Converts strings in the format `07/23/2023` to datetime. This month-first format is commonly used in the United States.
+- **`%Y-%m-%d %H:%M:%S`**: Converts strings in the format `2023-07-23 14:00:00` to datetime. This ISO format includes both date and time in a 24-hour format.
+- **`%d-%m-%Y %H:%M:%S`**: Converts strings in the format `23-07-2023 14:00:00` to datetime. This format includes both date and time in a 24-hour format with a day-first arrangement.
+- **`%I:%M %p`**: Converts strings in the format `02:00 PM` to datetime. This format uses a 12-hour clock with AM/PM.
+- **`%H:%M:%S`**: Converts strings in the format `14:00:00` to datetime. This format represents time in a 24-hour clock.
+- **`%Y-%m-%dT%H:%M:%S`**: Converts strings in the format `2023-07-23T14:00:00` to datetime. This ISO 8601 format includes a 'T' separator between date and time.
+- **`%B %d, %Y`**: Converts strings in the format `July 23, 2023` to datetime. This format uses the full month name, day, and year, often used in formal writing.
+- **`%b %d, %Y`**: Converts strings in the format `Jul 23, 2023` to datetime. This format uses an abbreviated month name followed by day and year.
+- **`%d %b %Y`**: Converts strings in the format `23 Jul 2023` to datetime. This day-first format uses an abbreviated month name.
+- **`%A, %B %d, %Y`**: Converts strings in the format `Sunday, July 23, 2023` to datetime. This format includes the full weekday name, full month name, day, and year, often used in formal contexts.
+- **`%a, %d %b %Y %H:%M:%S`**: Converts strings in the format `Sun, 23 Jul 2023 14:00:00` to datetime. This format includes an abbreviated weekday, day, abbreviated month, year, and 24-hour time, commonly used in email headers and log files.
+- **`%Y%m%d`**: Converts strings in the format `20230723` to datetime. This compact numeric format is useful for filenames and system-generated timestamps.
+- **`%Y-%m-%d %I:%M %p`**: Converts strings in the format `2023-07-23 02:00 PM` to datetime. This format combines ISO date with 12-hour time including AM/PM for readability.
+
+
 #### `pd.date_range()`
 
 **Explanation:**
