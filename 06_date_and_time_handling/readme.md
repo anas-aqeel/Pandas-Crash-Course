@@ -49,26 +49,44 @@ print(dates)
 
 ---
 
-### Common `Datetime` Formats in `Pandas`:
 
-**Description:**
-Short descriptions of various string formats used to handle datetime data in pandas.
+### Apply Filter on Date Column
 
-- **`%Y-%m-%d`**: Converts strings in the format `2023-07-23` to datetime. This is the ISO format for dates, commonly used for sorting and system compatibility.
-- **`%d-%m-%Y`**: Converts strings in the format `23-07-2023` to datetime. This day-first format is widely used outside the United States.
-- **`%m/%d/%Y`**: Converts strings in the format `07/23/2023` to datetime. This month-first format is commonly used in the United States.
-- **`%Y-%m-%d %H:%M:%S`**: Converts strings in the format `2023-07-23 14:00:00` to datetime. This ISO format includes both date and time in a 24-hour format.
-- **`%d-%m-%Y %H:%M:%S`**: Converts strings in the format `23-07-2023 14:00:00` to datetime. This format includes both date and time in a 24-hour format with a day-first arrangement.
-- **`%I:%M %p`**: Converts strings in the format `02:00 PM` to datetime. This format uses a 12-hour clock with AM/PM.
-- **`%H:%M:%S`**: Converts strings in the format `14:00:00` to datetime. This format represents time in a 24-hour clock.
-- **`%Y-%m-%dT%H:%M:%S`**: Converts strings in the format `2023-07-23T14:00:00` to datetime. This ISO 8601 format includes a 'T' separator between date and time.
-- **`%B %d, %Y`**: Converts strings in the format `July 23, 2023` to datetime. This format uses the full month name, day, and year, often used in formal writing.
-- **`%b %d, %Y`**: Converts strings in the format `Jul 23, 2023` to datetime. This format uses an abbreviated month name followed by day and year.
-- **`%d %b %Y`**: Converts strings in the format `23 Jul 2023` to datetime. This day-first format uses an abbreviated month name.
-- **`%A, %B %d, %Y`**: Converts strings in the format `Sunday, July 23, 2023` to datetime. This format includes the full weekday name, full month name, day, and year, often used in formal contexts.
-- **`%a, %d %b %Y %H:%M:%S`**: Converts strings in the format `Sun, 23 Jul 2023 14:00:00` to datetime. This format includes an abbreviated weekday, day, abbreviated month, year, and 24-hour time, commonly used in email headers and log files.
-- **`%Y%m%d`**: Converts strings in the format `20230723` to datetime. This compact numeric format is useful for filenames and system-generated timestamps.
-- **`%Y-%m-%d %I:%M %p`**: Converts strings in the format `2023-07-23 02:00 PM` to datetime. This format combines ISO date with 12-hour time including AM/PM for readability.
+- `dataframe.column.dt`
+- `dt.strftime`
+- `dt.strptime`
+
+In pandas, when you have a `datetime` column in a DataFrame, you can format the date and time information using the `strftime` method, which allows for flexible formatting by specifying format codes. Each code represents a different element of the date and time. Below are some of the commonly used format codes that you can use with `strftime`:
+
+- `%a` - Abbreviated weekday name.
+- `%A` - Full weekday name.
+- `%w` - Weekday as a decimal number, where 0 is Sunday and 6 is Saturday.
+- `%d` - Day of the month as a zero-padded decimal number.
+- `%b` - Abbreviated month name.
+- `%B` - Full month name.
+- `%m` - Month as a zero-padded decimal number.
+- `%y` - Year without century as a zero-padded decimal number.
+- `%Y` - Year with century as a decimal number.
+- `%H` - Hour (24-hour clock) as a zero-padded decimal number.
+- `%I` - Hour (12-hour clock) as a zero-padded decimal number.
+- `%p` - Locale’s equivalent of either AM or PM.
+- `%M` - Minute as a zero-padded decimal number.
+- `%S` - Second as a zero-padded decimal number.
+- `%f` - Microsecond as a decimal number, zero-padded on the left.
+- `%z` - UTC offset in the form ±HHMM[SS[.ffffff]] (empty string if the object is naive).
+- `%Z` - Time zone name (empty string if the object is naive).
+- `%j` - Day of the year as a zero-padded decimal number.
+- `%U` - Week number of the year (Sunday as the first day of the week) as a zero-padded decimal number.
+- `%W` - Week number of the year (Monday as the first day of the week) as a zero-padded decimal number.
+- `%c` - Locale’s appropriate date and time representation.
+- `%x` - Locale’s appropriate date representation.
+- `%X` - Locale’s appropriate time representation.
+- `%G` - ISO 8601 year with century representing the year that contains the greater part of the ISO week (`%V`).
+- `%u` - ISO 8601 weekday as a decimal number where 1 is Monday.
+- `%V` - ISO 8601 week number as a decimal number with Monday as the first day of the week.
+
+
+
 
 
 #### `pd.date_range()`
